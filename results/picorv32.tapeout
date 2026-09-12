@@ -1,0 +1,70 @@
+tapeout 1
+ip picorv32 revision ef203c2 top picorv32_axi
+
+module picorv32_axi ports 32
+port clk input @ picorv32.v:2544
+port resetn input @ picorv32.v:2544
+port trap output @ picorv32.v:2545
+port mem_axi_awvalid output @ picorv32.v:2549
+port mem_axi_awready input @ picorv32.v:2550
+port mem_axi_awaddr output [31:0] @ picorv32.v:2551
+port mem_axi_awprot output @ picorv32.v:2552
+port mem_axi_wvalid output @ picorv32.v:2554
+port mem_axi_wready input @ picorv32.v:2555
+port mem_axi_wdata output [31:0] @ picorv32.v:2556
+port mem_axi_wstrb output [3:0] @ picorv32.v:2557
+port mem_axi_bvalid input @ picorv32.v:2559
+port mem_axi_bready output @ picorv32.v:2560
+port mem_axi_arvalid output @ picorv32.v:2562
+port mem_axi_arready input @ picorv32.v:2563
+port mem_axi_araddr output [31:0] @ picorv32.v:2564
+port mem_axi_arprot output [2:0] @ picorv32.v:2565
+port mem_axi_rvalid input @ picorv32.v:2567
+port mem_axi_rready output @ picorv32.v:2568
+port mem_axi_rdata input [31:0] @ picorv32.v:2569
+port pcpi_valid output @ picorv32.v:2572
+port pcpi_insn output [31:0] @ picorv32.v:2573
+port pcpi_rs1 output [31:0] @ picorv32.v:2574
+port pcpi_rs2 output [31:0] @ picorv32.v:2575
+port pcpi_wr input @ picorv32.v:2576
+port pcpi_rd input [31:0] @ picorv32.v:2577
+port pcpi_wait input @ picorv32.v:2578
+port pcpi_ready input @ picorv32.v:2579
+port irq input [31:0] @ picorv32.v:2582
+port eoi output [31:0] @ picorv32.v:2583
+port trace_valid output @ picorv32.v:2608
+port trace_data output [35:0] @ picorv32.v:2609
+
+param BARREL_SHIFTER value 0
+param CATCH_ILLINSN value 1
+param CATCH_MISALIGN value 1
+param COMPRESSED_ISA value 0
+param ENABLE_COUNTERS value 1
+param ENABLE_COUNTERS64 value 1
+param ENABLE_DIV value 0
+param ENABLE_FAST_MUL value 0
+param ENABLE_IRQ value 0
+param ENABLE_IRQ_QREGS value 1
+param ENABLE_IRQ_TIMER value 1
+param ENABLE_MUL value 0
+param ENABLE_PCPI value 0
+param ENABLE_REGS_16_31 value 1
+param ENABLE_REGS_DUALPORT value 1
+param ENABLE_TRACE value 0
+param LATCHED_IRQ value 11111111111111111111111111111111
+param MASKED_IRQ value 00000000000000000000000000000000
+param PROGADDR_IRQ value 00000000000000000000000000010000
+param PROGADDR_RESET value 00000000000000000000000000000000
+param REGS_INIT_ZERO value 0
+param STACKADDR value 11111111111111111111111111111111
+param TWO_CYCLE_ALU value 0
+param TWO_CYCLE_COMPARE value 0
+param TWO_STAGE_SHIFT value 1
+
+instance axi_adapter of picorv32_axi_adapter @ picorv32.v:2619
+instance picorv32_core of picorv32 @ picorv32.v:2674
+
+finding IMPACT-001 confirmed info "6d145b7 Rename decoded_imm_uj to decoded_imm_j" port eoi reasons line_overlap_seed,wl_structural_hash desc "6 changed lines seed 1225 nodes; same-cycle cone 750 cells, transitive 927 of 934; structural identity unchanged for 934 of 934 cells (k=3)" @ picorv32.v:640
+finding IMPACT-002 confirmed warning "29102c0 Bugfix: decode fence instruction" port pcpi_insn reasons line_overlap_seed,wl_structural_hash desc "6 changed lines seed 333 nodes; same-cycle cone 396 cells, transitive 893 of 919; structural identity unchanged for 551 of 919 cells (k=3)" @ picorv32.v:651
+finding IMPACT-003 confirmed info "de92ce5 Fix RV32E shifts" reasons line_overlap_seed,wl_structural_hash desc "2 changed lines seed 15 nodes; same-cycle cone 32 cells, transitive 893 of 919; structural identity unchanged for 919 of 919 cells (k=3)" @ picorv32.v:655
+finding IMPACT-004 confirmed info "18cd609 Add rvfi_ixl" reasons line_overlap_seed,wl_structural_hash desc "2 changed lines seed 0 nodes; same-cycle cone 0 cells, transitive 0 of 934; structural identity unchanged for 934 of 934 cells (k=3)" @ picorv32.v:126

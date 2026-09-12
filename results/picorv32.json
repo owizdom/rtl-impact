@@ -1,0 +1,318 @@
+{
+  "repo": "/Users/macbook/Desktop/docs/tapeout-labs/proto/picorv32",
+  "file": "picorv32.v",
+  "top": "picorv32_axi",
+  "head": "ef203c2",
+  "summary": {
+    "top": "picorv32_axi",
+    "cells": 919,
+    "registers": 119,
+    "net_bits": 5109,
+    "edges": 14718,
+    "cell_types": [
+      [
+        "$mux",
+        315
+      ],
+      [
+        "$eq",
+        183
+      ],
+      [
+        "$dff",
+        116
+      ],
+      [
+        "$logic_and",
+        104
+      ],
+      [
+        "$logic_not",
+        61
+      ],
+      [
+        "$pmux",
+        51
+      ],
+      [
+        "$logic_or",
+        35
+      ],
+      [
+        "$reduce_or",
+        17
+      ],
+      [
+        "$add",
+        10
+      ],
+      [
+        "$sub",
+        4
+      ]
+    ],
+    "combinational_loops": 0
+  },
+  "cones": {
+    "trap": {
+      "bits": 1,
+      "same_cycle_cells": 1,
+      "transitive_cells": 773
+    },
+    "mem_axi_awvalid": {
+      "bits": 1,
+      "same_cycle_cells": 7,
+      "transitive_cells": 809
+    },
+    "mem_axi_awaddr": {
+      "bits": 32,
+      "same_cycle_cells": 1,
+      "transitive_cells": 790
+    },
+    "mem_axi_awprot": {
+      "bits": 0,
+      "same_cycle_cells": 0,
+      "transitive_cells": 0
+    },
+    "mem_axi_wvalid": {
+      "bits": 1,
+      "same_cycle_cells": 7,
+      "transitive_cells": 809
+    },
+    "mem_axi_wdata": {
+      "bits": 32,
+      "same_cycle_cells": 1,
+      "transitive_cells": 783
+    },
+    "mem_axi_wstrb": {
+      "bits": 4,
+      "same_cycle_cells": 1,
+      "transitive_cells": 795
+    },
+    "mem_axi_bready": {
+      "bits": 1,
+      "same_cycle_cells": 4,
+      "transitive_cells": 797
+    },
+    "mem_axi_arvalid": {
+      "bits": 1,
+      "same_cycle_cells": 7,
+      "transitive_cells": 809
+    },
+    "mem_axi_araddr": {
+      "bits": 32,
+      "same_cycle_cells": 1,
+      "transitive_cells": 790
+    },
+    "mem_axi_arprot": {
+      "bits": 3,
+      "same_cycle_cells": 2,
+      "transitive_cells": 781
+    },
+    "mem_axi_rready": {
+      "bits": 1,
+      "same_cycle_cells": 4,
+      "transitive_cells": 797
+    },
+    "pcpi_valid": {
+      "bits": 1,
+      "same_cycle_cells": 1,
+      "transitive_cells": 2
+    },
+    "pcpi_insn": {
+      "bits": 32,
+      "same_cycle_cells": 1,
+      "transitive_cells": 775
+    },
+    "pcpi_rs1": {
+      "bits": 32,
+      "same_cycle_cells": 1,
+      "transitive_cells": 773
+    },
+    "pcpi_rs2": {
+      "bits": 32,
+      "same_cycle_cells": 1,
+      "transitive_cells": 773
+    },
+    "eoi": {
+      "bits": 32,
+      "same_cycle_cells": 1,
+      "transitive_cells": 778
+    },
+    "trace_valid": {
+      "bits": 1,
+      "same_cycle_cells": 1,
+      "transitive_cells": 1
+    },
+    "trace_data": {
+      "bits": 36,
+      "same_cycle_cells": 1,
+      "transitive_cells": 1
+    }
+  },
+  "commits": [
+    {
+      "commit": "6d145b7",
+      "subject": "Rename decoded_imm_uj to decoded_imm_j",
+      "changed_lines": 6,
+      "seed_nodes": 1225,
+      "total_cells": 934,
+      "same_cycle": {
+        "cells": 750,
+        "registers": 113,
+        "output_ports": [
+          "eoi",
+          "pcpi_insn",
+          "pcpi_rs1",
+          "pcpi_rs2",
+          "pcpi_valid",
+          "trace_data",
+          "trace_valid",
+          "trap"
+        ]
+      },
+      "transitive": {
+        "cells": 927,
+        "registers": 118,
+        "output_ports": [
+          "eoi",
+          "mem_axi_araddr",
+          "mem_axi_arprot",
+          "mem_axi_arvalid",
+          "mem_axi_awaddr",
+          "mem_axi_awvalid",
+          "mem_axi_bready",
+          "mem_axi_rready",
+          "mem_axi_wdata",
+          "mem_axi_wstrb",
+          "mem_axi_wvalid",
+          "pcpi_insn",
+          "pcpi_rs1",
+          "pcpi_rs2",
+          "pcpi_valid",
+          "trace_data",
+          "trace_valid",
+          "trap"
+        ]
+      },
+      "identity": {
+        "rounds": 3,
+        "cells_before": 934,
+        "cells_after": 934,
+        "unchanged": 934,
+        "changed_or_new": 0
+      }
+    },
+    {
+      "commit": "29102c0",
+      "subject": "Bugfix: decode fence instruction",
+      "changed_lines": 6,
+      "seed_nodes": 333,
+      "total_cells": 919,
+      "same_cycle": {
+        "cells": 396,
+        "registers": 91,
+        "output_ports": [
+          "pcpi_insn"
+        ]
+      },
+      "transitive": {
+        "cells": 893,
+        "registers": 111,
+        "output_ports": [
+          "eoi",
+          "mem_axi_araddr",
+          "mem_axi_arprot",
+          "mem_axi_arvalid",
+          "mem_axi_awaddr",
+          "mem_axi_awvalid",
+          "mem_axi_bready",
+          "mem_axi_rready",
+          "mem_axi_wdata",
+          "mem_axi_wstrb",
+          "mem_axi_wvalid",
+          "pcpi_insn",
+          "pcpi_rs1",
+          "pcpi_rs2",
+          "trap"
+        ]
+      },
+      "identity": {
+        "rounds": 3,
+        "cells_before": 913,
+        "cells_after": 919,
+        "unchanged": 551,
+        "changed_or_new": 368
+      }
+    },
+    {
+      "commit": "de92ce5",
+      "subject": "Fix RV32E shifts",
+      "changed_lines": 2,
+      "seed_nodes": 15,
+      "total_cells": 919,
+      "same_cycle": {
+        "cells": 32,
+        "registers": 10,
+        "output_ports": []
+      },
+      "transitive": {
+        "cells": 893,
+        "registers": 111,
+        "output_ports": [
+          "eoi",
+          "mem_axi_araddr",
+          "mem_axi_arprot",
+          "mem_axi_arvalid",
+          "mem_axi_awaddr",
+          "mem_axi_awvalid",
+          "mem_axi_bready",
+          "mem_axi_rready",
+          "mem_axi_wdata",
+          "mem_axi_wstrb",
+          "mem_axi_wvalid",
+          "pcpi_insn",
+          "pcpi_rs1",
+          "pcpi_rs2",
+          "trap"
+        ]
+      },
+      "identity": {
+        "rounds": 3,
+        "cells_before": 919,
+        "cells_after": 919,
+        "unchanged": 919,
+        "changed_or_new": 0
+      }
+    },
+    {
+      "commit": "18cd609",
+      "subject": "Add rvfi_ixl",
+      "changed_lines": 2,
+      "seed_nodes": 0,
+      "total_cells": 934,
+      "same_cycle": {
+        "cells": 0,
+        "registers": 0,
+        "output_ports": []
+      },
+      "transitive": {
+        "cells": 0,
+        "registers": 0,
+        "output_ports": []
+      },
+      "identity": {
+        "rounds": 3,
+        "cells_before": 934,
+        "cells_after": 934,
+        "unchanged": 934,
+        "changed_or_new": 0
+      }
+    },
+    {
+      "commit": "258d63d",
+      "skipped": "/var/folders/s2/32g0ny1n2q12hlvm7ndcmv3h0000gn/T/rtl-impact-0acux3eb/258d63d/picorv32.v:1912: ERROR: syntax error, unexpected TOK_ID, expecting '('"
+    }
+  ],
+  "tapeout_validation": "parsed by tof reference parser (4 findings)"
+}
